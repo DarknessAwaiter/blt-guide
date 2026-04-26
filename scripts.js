@@ -2,80 +2,75 @@
   const commands = [
     // === ГЕРОЙ / ПРОГРЕСС ===
     {
-      name: "!дост",
-      category: "hero",
-      description: "Показать достижения героя и отслеживаемую статистику (убийства, серии, награды и т.п.).",
-      usage: "!дост",
-      example: "!дост",
-      details: ""
-    },
-    {
       name: "!усыновить",
       category: "hero",
-      description: "Усыновить (создать) нового героя-зрителя. Почти все остальные действия требуют уже усыновлённого героя.",
-      usage: "!усыновить",
-      example: "!усыновить",
-      details: "Создание героя"
+      description: "Усыновить (создать) нового героя-зрителя. Почти все остальные действия требуют уже усыновлённого героя. Стартовое золото: 50.000⦷",
+      usage: "!усыновить"
     },
     {
       name: "!adoptByCulture",
       category: "hero",
-      description: "Усыновить случайного героя, отфильтрованного по культуре. Можно использовать подкоманду list для списка культур.",
+      description: "Усыновить случайного героя по культуре",
       usage: "!adoptByCulture <culture>",
-      example: "!adoptByCulture sturgia",
-      details: "Случайный герой по культуре"
+      subcommands: [
+        { 
+          name: "list",   
+          desc: "Выводит список культур", 
+          example: "!adoptByCulture list"
+        },
+      ]
+    },
+    {
+      name: "!дост",
+      category: "hero",
+      description: "Показать достижения героя и отслеживаемую статистику (убийства, серии, награды и т.п.).",
+      usage: "!дост"
     },
     {
       name: "!стат",
       category: "hero",
       description: "Показать общую информацию о вашем герое: клан, золото, местоположение, HP, навыки, атрибуты, свита и т.п.",
-      usage: "!стат",
-      example: "!стат",
-      details: ""
+      usage: "!стат"
     },
     {
-      name: "!Атрибут",
+      name: "!атрибут",
       category: "hero",
       description: "Повысить атрибут героя. Укажите имя атрибута или его часть.",
-      usage: "!Атрибут <атрибут>",
-      example: "!Атрибут сила",
-      details: "Стоимость: 250000⦷"
+      usage: "!атрибут выносливость",
+      cost: "250.000⦷"
     },
     {
-      name: "!Фокус",
+      name: "!фокус",
       category: "hero",
-      description: "Показать список навыков, на которые можно распределять очки фокуса.",
-      usage: "!Фокус",
-      example: "!Фокус",
-      details: ""
-    },
-
-    // !Hero разбит на подкоманды
-    {
-      name: "!hero gender",
-      category: "hero",
-      description: "Изменить пол героя на мужской или женский.",
-      usage: "!hero gender <male/female>",
-      example: "!hero gender male",
-      details: ""
+      description: "Купить очко фокуса. Можно указать короткое название. Можно купить сразу несколько фокусов: !фокус атлетичность 2<br><br><i>Одноручное, Двуручное, Полэкс<br>Лук, Арбалет, Метательное<br>Езда верхом, Атлетичность, Кузн. дело<br>Разведка, Тактика, Мошенничество<br>Обаяние, Лидерство, Торговля<br>Управление, Медицина, Инж. дело<br>Мореход, Боцман, Капитан корабля</i>",
+      usage: "!фокус атлетичность",
+      cost: "1=30.000⦷<br>2=40.000⦷<br>3=50.000⦷<br>4=60.000⦷<br>5=75.000⦷"
     },
     {
-      name: "!hero looks",
+      name: "!hero",
       category: "hero",
-      description: "Применить строку внешности (appearance string) к вашему герою.",
-      usage: "!hero looks <appearance_string>",
-      example: "!hero looks 3.5.0.0.2.1...",
-      details: ""
+      description: "Позволяет жениться/изменить пол/изменить внешность",
+      usage: "!стат",
+      subcommands: [
+        { 
+          name: "marry",   
+          desc: "Попытаться женить героя на NPC по культуре/клану/имени, если ничего не указать будет рандом.", 
+          example: "!hero mary",
+          cost:"50.000⦷"
+        },
+        { 
+          name: "gender",   
+          desc: "Изменить пол героя на мужской (male) или женский (female).", 
+          example: "!hero gender male/female",
+          cost:"50.000⦷"
+        },
+        { 
+          name: "looks",   
+          desc: "Применить строку внешности (appearance string) к вашему герою.", 
+          example: "!hero looks 3.5.0.0.2.1"
+        },
+      ]
     },
-    {
-      name: "!hero marry",
-      category: "hero",
-      description: "Пытаться женить героя на NPC по культуре/клану/имени (если это разрешено настройками BLT).",
-      usage: "!hero marry <culture/clan/name>",
-      example: "!hero marry vlandia",
-      details: ""
-    },
-
     {
       name: "!family",
       category: "hero",
@@ -250,14 +245,6 @@
       example: "!способности",
       details: ""
     },
-    {
-      name: "!Ульта",
-      category: "hero",
-      description: "Активировать «ультимативную» способность героя (если она есть и не на перезарядке).",
-      usage: "!Ульта",
-      example: "!Ульта",
-      details: ""
-    },
 
     // === СВИТА / ОТРЯД ===
     {
@@ -326,14 +313,48 @@
       example: "!clan create Волки_Степи",
       details: "",
       subcommands: [
-        { name: "join",   desc: "Вступить в существующий клан.", example: "!clan join Banu_Tammar" },
-        { name: "create", desc: "Создать новый клан с указанным названием.", example: "!clan create Волки_Степи" },
-        { name: "lead",   desc: "Стать лидером указанного клана (если это возможно).", example: "!clan lead Волки_Степи" },
-        { name: "rename", desc: "Переименовать текущий клан.", example: "!clan rename Новое_Имя" },
-        { name: "stats",  desc: "Показать статистику клана (участники, владения, сила и т.п.).", example: "!clan stats" },
-        { name: "leave",  desc: "Покинуть текущий клан.", example: "!clan leave" },
-        { name: "buy title",  desc: "Купить благородный титул для героя (если включено).", example: "!clan buy title" },
-        { name: "buy banner", desc: "Купить уникальный баннер для клана (если включено).", example: "!clan buy banner" }
+        { 
+          name: "join",   
+          desc: "Вступить в существующий клан.", 
+          example: "!clan join Banu_Tammar",
+          cost: "—"
+        },
+        { 
+          name: "create", 
+          desc: "Создать новый клан с указанным названием.", 
+          example: "!clan create Волки_Степи",
+          cost: "5000⦷"
+        },
+        { 
+          name: "lead",   
+          desc: "Стать лидером указанного клана (если это возможно).", 
+          example: "!clan lead Волки_Степи" 
+        },
+        { 
+          name: "rename", 
+          desc: "Переименовать текущий клан.", 
+          example: "!clan rename Новое_Имя" 
+        },
+        { 
+          name: "stats",  
+          desc: "Показать статистику клана (участники, владения, сила и т.п.).", 
+          example: "!clan stats" 
+        },
+        { 
+          name: "leave",  
+          desc: "Покинуть текущий клан.", 
+          example: "!clan leave" 
+        },
+        { 
+          name: "buy title",  
+          desc: "Купить благородный титул для героя (если включено).", 
+          example: "!clan buy title" 
+        },
+        { 
+          name: "buy banner", 
+          desc: "Купить уникальный баннер для клана (если включено).", 
+          example: "!clan buy banner" 
+        }
       ]
     },
     {
@@ -355,60 +376,34 @@
 
     // === БОЙ / ПРИЗЫВ ===
     {
-      name: "!война",
-      category: "battle",
-      description: "Краткая команда, если на твоём сервере настроена на вызов героя в бой (кастом, не везде есть).",
-      usage: "!война",
-      example: "!война",
-      details: ""
-    },
-    {
       name: "!бой",
       category: "battle",
       description: "Использовать, когда стример входит в битву, чтобы призвать вашего героя на стороне стримера (со свитой).",
-      usage: "!бой",
-      example: "!бой",
-      details: ""
+      example: "!бой"
     },
     {
-      name: "!Атака",
+      name: "!атака",
       category: "battle",
       description: "Использовать, когда стример входит в битву, чтобы призвать вашего героя на стороне врага (со свитой).",
-      usage: "!Атака",
-      example: "!Атака",
-      details: ""
-    },
-    {
-      name: "!Битва",
-      category: "battle",
-      description: "Дополнительные настройки поведения героя в битве (может быть отключено).",
-      usage: "!Битва",
-      example: "!Битва",
-      details: ""
-    },
-    {
-      name: "!Битваинфо",
-      category: "battle",
-      description: "Показать информацию о текущей битве (состав сторон, сложность, награды и т.п.), если включено.",
-      usage: "!Битваинфо",
-      example: "!Битваинфо",
-      details: ""
+      example: "!атака"
     },
     {
       name: "!хил",
       category: "battle",
-      description: "Постепенно лечит вашего героя во время боя. Работает только когда герой призван.",
-      usage: "!хил",
-      example: "!хил",
-      details: ""
+      description: "Постепенно лечит вашего героя во время боя. Работает только когда герой призван. Продолжительность: 120 сек.",
+      example: "!хил"
     },
     {
-      name: "!campaign",
+      name: "!ульта",
       category: "battle",
-      description: "Управление участием героя в глобальной кампании (поведение зависит от настроек BLT).",
-      usage: "!campaign",
-      example: "!campaign",
-      details: ""
+      description: "Активировать «ультимативную» способность героя (если она есть и не на перезарядке). Продолжительность: 120 сек. Активировать можно после четырех боев. При смене класса: необходимо так же провести четыре боя для активации ульты",
+      example: "!ульта"
+    },
+    {
+      name: "!битваинфо",
+      category: "battle",
+      description: "Показать информацию о текущей битве (состав сторон, сложность, награды и т.п.).",
+      example: "!битваинфо"
     },
 
     // === ТУРНИРЫ / СТАВКИ / АУКЦИОНЫ ===
@@ -505,6 +500,7 @@
 
       const tr = document.createElement("tr");
 
+      // --- столбец 1: команда + категория ---
       const tdName = document.createElement("td");
       const nameEl = document.createElement("div");
       nameEl.className = "cmd-name";
@@ -519,44 +515,12 @@
       metaWrap.appendChild(catPill);
       tdName.appendChild(metaWrap);
 
+      // --- столбец 2: описание + подкоманды ---
       const tdDesc = document.createElement("td");
       const descEl = document.createElement("div");
       descEl.className = "cmd-desc";
-      descEl.textContent = cmd.description;
+      descEl.innerHTML = (cmd.description || "").replace(/\n/g, "<br>");
       tdDesc.appendChild(descEl);
-
-      if (cmd.usage) {
-        const usageBlock = document.createElement("div");
-        usageBlock.className = "cmd-usage-block";
-
-        const usageEl = document.createElement("div");
-        usageEl.className = "cmd-usage";
-        usageEl.textContent = cmd.usage;
-        usageBlock.appendChild(usageEl);
-
-        if (cmd.example) {
-          const ex = document.createElement("div");
-          ex.className = "cmd-example";
-          ex.innerHTML = `Пример: <code>${cmd.example}</code>`;
-          usageBlock.appendChild(ex);
-        }
-
-        const copyMain = document.createElement("button");
-        copyMain.type = "button";
-        copyMain.className = "copy-btn";
-        copyMain.innerHTML = `<span>📋</span>Копировать`;
-        copyMain.addEventListener("click", () => {
-          const toCopy = cmd.example || cmd.usage.split("\n")[0];
-          navigator.clipboard.writeText(toCopy);
-          copyMain.textContent = "Скопировано!";
-          setTimeout(() => {
-            copyMain.innerHTML = `<span>📋</span>Копировать`;
-          }, 1200);
-        });
-        usageBlock.appendChild(copyMain);
-
-        tdDesc.appendChild(usageBlock);
-      }
 
       if (cmd.subcommands && cmd.subcommands.length) {
         const subTitle = document.createElement("div");
@@ -576,18 +540,46 @@
 
         cmd.subcommands.forEach(sc => {
           const li = document.createElement("li");
+          li.style.marginTop = "8px"; // визуальное разделение подкоманд
+
+          // первая строка: имя + стоимость
+          const headerLine = document.createElement("div");
+          headerLine.style.display = "flex";
+          headerLine.style.alignItems = "center";
+          headerLine.style.gap = "8px";
 
           const nameSpan = document.createElement("span");
           nameSpan.style.color = "var(--accent-strong)";
           nameSpan.textContent = sc.name;
-          li.appendChild(nameSpan);
+          headerLine.appendChild(nameSpan);
 
-          li.appendChild(document.createTextNode(" — " + sc.desc));
+          if (sc.cost) {
+            const costBadge = document.createElement("span");
+            costBadge.className = "cmd-cost";
+            costBadge.style.fontSize = "11px";
+            costBadge.style.padding = "1px 6px";
+            costBadge.style.borderRadius = "999px";
+            costBadge.style.backgroundColor = "rgba(255,255,255,0.04)";
+            costBadge.style.border = "1px solid rgba(255,255,255,0.06)";
 
+            const html = String(sc.cost).replace(/\n/g, "<br>");
+            costBadge.innerHTML = `<span>${html}</span>`;
+
+            headerLine.appendChild(costBadge);
+          }
+
+          li.appendChild(headerLine);
+
+          // описание
+          const descLine = document.createElement("div");
+          descLine.innerHTML = (sc.desc || "").replace(/\n/g, "<br>");
+          li.appendChild(descLine);
+
+          // пример + копирование
           if (sc.example) {
             const exDiv = document.createElement("div");
             exDiv.className = "cmd-usage";
-            exDiv.style.marginTop = "2px";
+            exDiv.style.marginTop = "3px";
             exDiv.textContent = sc.example;
 
             const exCopy = document.createElement("button");
@@ -613,17 +605,45 @@
         tdDesc.appendChild(subList);
       }
 
-      const tdDetails = document.createElement("td");
-      if (cmd.details) {
-        const costEl = document.createElement("div");
-        costEl.className = "cmd-cost";
-        costEl.innerHTML = "<span>" + cmd.details + "</span>";
-        tdDetails.appendChild(costEl);
+      // --- столбец 3: пример + копирование ---
+      const tdExample = document.createElement("td");
+      if (cmd.example) {
+        const usageBlock = document.createElement("div");
+        usageBlock.className = "cmd-usage-block";
+
+        const usageEl = document.createElement("div");
+        usageEl.className = "cmd-usage";
+        usageEl.textContent = cmd.example;
+        usageBlock.appendChild(usageEl);
+
+        const copyMain = document.createElement("button");
+        copyMain.type = "button";
+        copyMain.className = "copy-btn";
+        copyMain.innerHTML = `<span>📋</span>Копировать`;
+        copyMain.addEventListener("click", () => {
+          navigator.clipboard.writeText(cmd.example);
+          copyMain.textContent = "Скопировано!";
+          setTimeout(() => {
+            copyMain.innerHTML = `<span>📋</span>Копировать`;
+          }, 1200);
+        });
+        usageBlock.appendChild(copyMain);
+
+        tdExample.appendChild(usageBlock);
       }
 
+      // --- столбец 4: стоимость ---
+      const tdCost = document.createElement("td");
+      const costEl = document.createElement("div");
+      costEl.className = "cmd-cost";
+      costEl.innerHTML = `<span>${cmd.cost || "—"}</span>`;
+      tdCost.appendChild(costEl);
+
+      // собрать строку
       tr.appendChild(tdName);
       tr.appendChild(tdDesc);
-      tr.appendChild(tdDetails);
+      tr.appendChild(tdExample);
+      tr.appendChild(tdCost);
 
       commandsBody.appendChild(tr);
       shown++;
