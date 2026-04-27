@@ -5,13 +5,13 @@
       name: "!усыновить",
       category: "hero",
       description: "Усыновить (создать) нового героя-зрителя. Почти все остальные действия требуют уже усыновлённого героя. Стартовое золото: 50.000⦷",
-      usage: "!усыновить"
+      example: "!усыновить"
     },
     {
       name: "!adoptByCulture",
       category: "hero",
       description: "Усыновить случайного героя по культуре",
-      usage: "!adoptByCulture <culture>",
+      example: "!adoptByCulture <culture>",
       subcommands: [
         { 
           name: "list",   
@@ -24,33 +24,32 @@
       name: "!дост",
       category: "hero",
       description: "Показать достижения героя и отслеживаемую статистику (убийства, серии, награды и т.п.).",
-      usage: "!дост"
+      example: "!дост"
     },
     {
       name: "!стат",
       category: "hero",
       description: "Показать общую информацию о вашем герое: клан, золото, местоположение, HP, навыки, атрибуты, свита и т.п.",
-      usage: "!стат"
+      example: "!стат"
     },
     {
       name: "!атрибут",
       category: "hero",
       description: "Повысить атрибут героя. Укажите имя атрибута или его часть.",
-      usage: "!атрибут выносливость",
+      example: "!атрибут выносливость",
       cost: "250.000⦷"
     },
     {
       name: "!фокус",
       category: "hero",
       description: "Купить очко фокуса. Можно указать короткое название. Можно купить сразу несколько фокусов: !фокус атлетичность 2<br><br><i>Одноручное, Двуручное, Полэкс<br>Лук, Арбалет, Метательное<br>Езда верхом, Атлетичность, Кузн. дело<br>Разведка, Тактика, Мошенничество<br>Обаяние, Лидерство, Торговля<br>Управление, Медицина, Инж. дело<br>Мореход, Боцман, Капитан корабля</i>",
-      usage: "!фокус атлетичность",
+      example: "!фокус атлетичность",
       cost: "1=30.000⦷<br>2=40.000⦷<br>3=50.000⦷<br>4=60.000⦷<br>5=75.000⦷"
     },
     {
       name: "!hero",
       category: "hero",
       description: "Позволяет жениться/изменить пол/изменить внешность",
-      usage: "!стат",
       subcommands: [
         { 
           name: "marry",   
@@ -74,60 +73,79 @@
     {
       name: "!family",
       category: "hero",
-      description: "Настройки семьи героя (количество детей и т.п.). Максимальное число детей от baby-команды — 10.",
-      usage: "!family",
+      description: "Информация о семье героя (количество детей и т.п.). .",
       example: "!family",
-      details: "Макс. детей: 10"
+      subcommands: [
+        {
+          name: "spouse baby",
+          desc: "Сделать ребенка. Максимальное кол-во детей: 10",
+          example: "!family spouse baby",
+        }
+      ]
     },
     {
       name: "!heir",
       category: "hero",
       description: "Настройки наследника: возраст, навыки, золото, наследование, снаряжение и уведомления.",
-      usage: "!heir",
       example: "!heir",
-      details: ""
     },
     {
-      name: "!info",
+      name: "!класс",
       category: "hero",
-      description: "Краткая сводка о моде BLT и доступных возможностях (может отличаться в зависимости от сервера).",
-      usage: "!info",
-      example: "!info",
-      details: ""
+      description: "Выбрать новый класс для героя. Снаряжение обновится под требования класса. Бесплатно, если класса ещё не было, а если был то стоимость зависит от уровня снаряги.",
+      example: "!класс лучник",
+      cost: "1=5.000⦷<br>2=10.000⦷<br>3=20.000⦷<br>4=40.000⦷<br>5=80.000⦷<br>6=160.000⦷"
     },
     {
-      name: "!leaderboard",
+      name: "!способности",
       category: "hero",
-      description: "Показать таблицу лидеров (богатство, убийства и т.п.), если включено на сервере.",
-      usage: "!leaderboard",
-      example: "!leaderboard",
-      details: ""
+      description: "Показать доступные способности вашего героя (пассивные и активные, зависят от класса и уровня).",
+      example: "!способности",
+    },
+    {
+      name: "!молодость",
+      category: "hero",
+      description: "Омолодить героя на 5 лет",
+      example: "!молодость",
+      cost: "5.000⦷"
+    },
+    {
+      name: "!retire",
+      category: "hero",
+      description: "Отправить героя в отставку (поведение зависит от настроек BLT).",
+      example: "!retire",
     },
 
-    // === ЭКОНОМИКА ===
+    // === ЭКОНОМИКА / АУКЦИОНЫ ===
     {
       name: "!золото",
       category: "economy",
       description: "Показать текущее количество золота вашего героя.",
-      usage: "!золото",
       example: "!золото",
-      details: ""
     },
     {
       name: "!income",
       category: "economy",
-      description: "Показать регулярный доход героя (с владений, клана, королевства и т.п.), если включено.",
-      usage: "!income",
+      description: "Показать регулярный доход героя (с владений, клана, королевства и т.п.).",
       example: "!income",
-      details: ""
     },
     {
-      name: "!Ништяк",
+      name: "!ништяк",
       category: "economy",
-      description: "Особая команда наград/бонусов (конкретный эффект зависит от конфигурации сервера BLT).",
-      usage: "!Ништяк",
-      example: "!Ништяк",
-      details: ""
+      description: "Передать золото другом BLT игроку. !ништяк ник кол-во_золота",
+      example: "!ништяк user 10000",
+    },
+    {
+      name: "!аукцион",
+      category: "economy",
+      description: "Запустить аукцион на свой кастомный предмет по индексу с минимальной ценой. Другие зрители делают ставки, побеждает наибольшая. Узнать индекс предмета можно командой: !customitems",
+      example: "!аукцион 3 50000",
+    },
+    {
+      name: "!предложить",
+      category: "economy",
+      description: "Сделать ставку в текущем активном аукционе. Если аукциона нет или ставка ниже резерва, её отклонят.",
+      example: "!предложить 100000",
     },
 
     // === СНАРЯЖЕНИЕ ===
@@ -135,173 +153,177 @@
       name: "!инв",
       category: "gear",
       description: "Показать экипировку и инвентарь героя, исключая кастомные предметы (их показывает !customitems).",
-      usage: "!инв",
       example: "!инв",
-      details: ""
     },
     {
       name: "!снаряга",
       category: "gear",
-      description: "Повысить уровень экипировки героя. Заменяет предметы ниже целевого тира, кроме кастомных вещей.",
-      usage: "!снаряга <tier>",
-      example: "!снаряга 1",
-      details: "Стоимость зависит от тира"
+      description: "Повысить уровень экипировки героя. Заменяет предметы ниже целевого тира, кроме кастомных вещей. Максимальный тир: 6. Стоимость зависит от тира.",
+      example: "!снаряга",
+      cost: "1=25.000⦷<br>2=50.000⦷<br>3=100.000⦷<br>4=200.000⦷<br>5=400.000⦷<br>6=1.000.000⦷"
     },
     {
       name: "!новаяснаряга",
       category: "gear",
-      description: "Рандомизирует снаряжение в рамках текущего уровня. Не заменяет предметы выше уровня и кастомные предметы.",
-      usage: "!новаяснаряга",
+      description: "Рандомизирует ваше снаряжение в соответствии с его текущим уровнем. Эта команда не заменяет предметы, которые выше вашего текущего уровня, или пользовательские предметы. Например, если у вас снаряжение уровня 3, но есть оружие уровня 6, выигранное на турнире, эта команда не заменит это оружие. Иногда некоторые предметы могут не меняться, особенно если на текущем уровне доступно не так много предметов данного типа",
       example: "!новаяснаряга",
-      details: "Переброс сета"
+      cost: "1=10.000⦷<br>2=25.000⦷<br>3=50.000⦷<br>4=100.000⦷<br>5=200.000⦷<br>6=400.000⦷"
     },
     {
       name: "!customitems",
       category: "gear",
       description: "Показать список кастомных предметов героя, с индексами для использования в других командах.",
-      usage: "!customitems",
       example: "!customitems",
-      details: "Индексы предметов"
     },
     {
       name: "!discarditem",
       category: "gear",
-      description: "Выбросить один из своих кастомных предметов по индексу.",
-      usage: "!discarditem <index>",
-      example: "!discarditem 3",
-      details: ""
+      description: "Выбросить один из своих кастомных предметов по индексу. Индекс можно узнать используя команду: !customitems",
+      example: "!discarditem 3"
     },
     {
       name: "!датьпредмет",
       category: "gear",
-      description: "Передать один из своих кастомных предметов другому зрителю.",
-      usage: "!датьпредмет <index> <viewer>",
+      description: "Передать один из своих кастомных предметов другому зрителю. Индекс можно узнать используя команду: !customitems",
       example: "!датьпредмет 3 NickName",
-      details: "Нужен индекс из !customitems"
     },
     {
       name: "!nameitem",
       category: "gear",
-      description: "Дать имя кастомному предмету.",
-      usage: "!nameitem <index> <name>",
+      description: "Дать имя кастомному предмету по индексу. Индекс можно узнать используя команду: !customitems",
       example: "!nameitem 3 Foehammer",
       details: ""
     },
     {
-      name: "!Надеть",
+      name: "!надеть",
       category: "gear",
-      description: "Без аргументов показывает ваши кастомные предметы. С аргументами надевает конкретный кастомный предмет.",
-      usage: "!Надеть <index>",
-      example: "!Надеть 3",
-      details: ""
+      description: "Без аргументов показывает ваши кастомные предметы. С аргументами надевает конкретный кастомный предмет по индексу. Индекс можно узнать используя команду: !customitems",
+      example: "!надеть 3",
     },
     {
-      name: "!Купитьоружие",
+      name: "!купитьоружие",
       category: "gear",
       description: "Выковать кастомное оружие для героя.",
-      usage: "!Купитьоружие",
-      example: "!Купитьоружие",
-      details: "Стоимость: 1 000 000⦷"
+      example: "!купитьоружие",
+      cost: "1.000.000⦷"
     },
     {
-      name: "!Купитьброню",
+      name: "!купитьброню",
       category: "gear",
       description: "Выковать кастомный предмет брони для героя.",
-      usage: "!Купитьброню",
-      example: "!Купитьброню",
-      details: "Стоимость: 500 000⦷"
+      example: "!купитьброню",
+      cost: "500.000⦷"
     },
     {
-      name: "!КупитьКоня",
+      name: "!купитьконя",
       category: "gear",
       description: "Купить случайно тирового скакуна для героя. Только для конных классов.",
-      usage: "!КупитьКоня",
-      example: "!КупитьКоня",
-      details: "Стоимость: 1 250 000⦷"
+      example: "!купитьконя",
+      cost: "1.250.000⦷"
     },
     {
       name: "!itemstats",
       category: "gear",
-      description: "Показать расширенные характеристики экипированных предметов (если включено).",
-      usage: "!itemstats",
+      description: "Показать расширенные характеристики экипированных предметов.",
       example: "!itemstats",
-      details: ""
     },
 
-    // === КЛАССЫ / СПОСОБНОСТИ ===
-    {
-      name: "!класс",
-      category: "hero",
-      description: "Выбрать новый класс для героя. Снаряжение обновится под требования класса. Бесплатно, если класса ещё не было.",
-      usage: "!класс <название>",
-      example: "!класс лучник",
-      details: "Меняет класс и экипировку"
-    },
-    {
-      name: "!способности",
-      category: "hero",
-      description: "Показать доступные способности вашего героя (пассивные и активные, зависят от класса и уровня).",
-      usage: "!способности",
-      example: "!способности",
-      details: ""
-    },
-
-    // === СВИТА / ОТРЯД ===
+    // === СВИТА / ОТРЯДЫ / АРМИИ ===
     {
       name: "!свита",
-      category: "clan",
-      description: "Нанять новых юнитов свиты или улучшить текущих до следующего тира. Свита появляется с вами в бою и приносит золото за убийства.",
-      usage: "!свита <кол-во|all>",
-      example: "!свита 1",
-      details: ""
+      category: "party",
+      description: "Нанять новых юнитов свиты или улучшить текущих до следующего тира. Свита появляется с вами в бою и приносит золото за убийства. Максимум свиты: 5. Можно явко указать сколько свиты нужно купить/улучшить: !свита кол-во.<br><i>Важно: нельзя купить свиту например сразу 5-го тира, если у вас нет юнитов 4-го тира</i>",
+      example: "!свита",
+      cost: "Стоимость свиты за тир:<br>1=25.000⦷<br>2=50.000⦷<br>3=100.000⦷<br>4=175.000⦷<br>5=275.000⦷<br>6=400.000⦷",
+      subcommands: [
+        {
+          name: "clear",
+          desc: "Уволить кого-то из свиты по индексу. Индекс можно посмотреть с помощью: !списоксвиты",
+          example: "!свита clear 2",
+        }
+      ]
     },
     {
       name: "!списоксвиты",
-      category: "clan",
+      category: "party",
       description: "Показать текущих юнитов свиты героя.",
-      usage: "!списоксвиты",
       example: "!списоксвиты",
-      details: ""
     },
     {
       name: "!party",
-      category: "clan",
-      description: "Управление отрядом/армией: создание, владения, осады, защита, патруль, распускание и передача командования.",
-      usage: "!party ...",
-      example: "!party create",
-      details: "Создание отряда: 5000⦷"
+      category: "party",
+      description: "Управление отрядом",
+      example: "!party",
+      subcommands: [
+        {
+          name: "-",
+          desc: "Посмотреть информацию об отряде/армии. Можно узнать находится ли герой в плену.",
+          example: "!party",
+        },
+        {
+          name: "create",
+          desc: "Создать отряд",
+          example: "!party create",
+          cost: "5.000⦷"
+        },
+        {
+          name: "stats",
+          desc: "Подробная статистика отряда/армии",
+          example: "!party stats"
+        },
+        {
+          name: "govern",
+          desc: "Стать наместником своего феода. !party govern название_феода",
+          example: "!party govern Роти"
+        }
+      ]
     },
     {
-      name: "!reinforce",
-      category: "clan",
-      description: "Усилить отряд или свиту (конкретный эффект зависит от конфигурации сервера).",
-      usage: "!reinforce",
-      example: "!reinforce",
-      details: ""
-    },
-    {
-      name: "!retire",
-      category: "clan",
-      description: "Отправить героя в отставку (поведение зависит от настроек BLT).",
-      usage: "!retire",
-      example: "!retire",
-      details: ""
-    },
-    {
-      name: "!transfer",
-      category: "clan",
-      description: "Передать часть войск/свиту/ресурсы другому герою (детали зависят от версии мода).",
-      usage: "!transfer ...",
-      example: "!transfer",
-      details: ""
-    },
-    {
-      name: "!upgrade",
-      category: "clan",
-      description: "Использовать систему улучшений (феоды/клан/королевство), если включена.",
-      usage: "!upgrade",
-      example: "!upgrade",
-      details: ""
+      name: "!party army",
+      category: "party",
+      description: "Управление армией",
+      subcommands: [
+        {
+          name: "-",
+          desc: "Посмотреть информацию об армии.",
+          example: "!party army",
+        },
+        {
+          name: "status",
+          desc: "Узнать исленность армии, поведение, сплоченность, питание, информация об активной армии.",
+          example: "!party army status",
+        },
+        {
+          name: "siege",
+          desc: "Осадить вражеский феод. Можно явно указать, что осаждать: !party army siege название_феода или довериться ИИ и явно не указывать феод",
+          example: "!party army siege"
+        },
+        {
+          name: "defend",
+          desc: "Дать указания на защиту своего феода или дружеского. Можно явно указать, что защищать: !party army defend название_феода или довериться ИИ и явно не указывать феод",
+          example: "!party army defend"
+        },
+        {
+          name: "patrol",
+          desc: "Дать указания на патрулирования возле феода или текущей позиции. Можно явно указать, где патрулировать: !party army patrol название_феода или довериться ИИ и явно не указывать феод",
+          example: "!party army patrol"
+        },
+        {
+          name: "disband",
+          desc: "Распустить вашу армию.",
+          example: "!party army disband",
+        },
+        {
+          name: "leave",
+          desc: "Покинуть армию твоим отрядом.",
+          example: "!party army leave",
+        },
+        {
+          name: "reassign",
+          desc: "Передайте командование армией герою из вашей армии.",
+          example: "!party army reassign Дурион",
+        }
+      ]
     },
 
     // === КЛАН / КОРОЛЕВСТВО / ДИПЛОМАТИЯ ===
@@ -309,36 +331,35 @@
       name: "!clan",
       category: "clan",
       description: "Управление кланом: вступление, создание, лидерство, переименование, статистика, выход, покупка титула/баннера.",
-      usage: "!clan <подкоманда> <имя>",
-      example: "!clan create Волки_Степи",
-      details: "",
       subcommands: [
         { 
-          name: "join",   
-          desc: "Вступить в существующий клан.", 
-          example: "!clan join Banu_Tammar",
-          cost: "—"
-        },
-        { 
-          name: "create", 
-          desc: "Создать новый клан с указанным названием.", 
-          example: "!clan create Волки_Степи",
-          cost: "5000⦷"
-        },
-        { 
-          name: "lead",   
-          desc: "Стать лидером указанного клана (если это возможно).", 
-          example: "!clan lead Волки_Степи" 
-        },
-        { 
-          name: "rename", 
-          desc: "Переименовать текущий клан.", 
-          example: "!clan rename Новое_Имя" 
-        },
-        { 
-          name: "stats",  
+          name: "стат",  
           desc: "Показать статистику клана (участники, владения, сила и т.п.).", 
-          example: "!clan stats" 
+          example: "!clan стат" 
+        },
+        { 
+          name: "вступить",   
+          desc: "Вступить в существующий клан. Если это клан BLT перед именем используй приписку: [BLT Clan]", 
+          example: "!clan вступить Banu_Tammar",
+          cost: "150.000⦷"
+        },
+        { 
+          name: "создать", 
+          desc: "Создать новый клан с указанным названием.", 
+          example: "!clan создать Волки_Степи",
+          cost: "1.000.000⦷"
+        },
+        { 
+          name: "возглавить",   
+          desc: "Стать лидером указанного клана (если это возможно). Если хочешь стать лидером клана в котором ты находишься: название можно не писать", 
+          example: "!clan возглавить Волки_Степи",
+          cost: "1.000.000⦷"
+        },
+        { 
+          name: "переименовать", 
+          desc: "Переименовать твой текущий клан (где ты лидер).", 
+          example: "!clan переименовать Новое_Имя",
+          cost: "100.000⦷"
         },
         { 
           name: "leave",  
@@ -351,9 +372,19 @@
           example: "!clan buy title" 
         },
         { 
-          name: "buy banner", 
-          desc: "Купить уникальный баннер для клана (если включено).", 
-          example: "!clan buy banner" 
+          name: "banner", 
+          desc: "Применить уникальный баннер для клана. Банер можно и получить код можно тут: https://bannerlord.party/banner/", 
+          example: "!clan banner 1.0.1" 
+        },
+        { 
+          name: "banner start", 
+          desc: "Если код баннера слишком большой: его отправить частями. Нужно начать этой командой", 
+          example: "!clan banner start" 
+        },
+        { 
+          name: "banner end", 
+          desc: "Если код баннера слишком большой: его отправить частями. Нужно закончить этой командой", 
+          example: "!clan banner end" 
         }
       ]
     },
@@ -361,17 +392,243 @@
       name: "!kingdom",
       category: "clan",
       description: "Действия с королевством: присоединиться, поднять мятеж, выйти, посмотреть статистику.",
-      usage: "!kingdom <join/rebel/leave/stats> ...",
-      example: "!kingdom join Aserai",
-      details: ""
+      subcommands: [
+        { 
+          name: "stats",  
+          desc: "Показать статистику королевства.", 
+          example: "!kingdom stats" 
+        },
+        { 
+          name: "join",  
+          desc: "Вступить в существующее королевство.", 
+          example: "!kingdom join Вландия",
+          cost: "150.000⦷"
+        },
+        { 
+          name: "create",  
+          desc: "Создать своё королевство.<br><i>Требования: 3-ий тир клана, 2 феода в собственности.</i>", 
+          example: "!kingdom create Византия",
+          cost: "20.000.000⦷"
+        },
+        { 
+          name: "leave",  
+          desc: "Покинуть текущее королевство", 
+          example: "!kingdom leave"
+        },
+        { 
+          name: "rebel",  
+          desc: "Поднять мятеж в королевстве и отсоединиться (вместе с своими феодами) от него, объявив войну.<br><i>Требования: 2-ой тир клана.</i>", 
+          example: "!kingdom rebel",
+          cost: "500.000⦷, а в королевстве BLT: 1.000.000⦷"
+        },
+        { 
+          name: "merc",  
+          desc: "Стать наемником в указанном королевстве", 
+          example: "!kingdom merc Вландия",
+          cost: "50.000⦷"
+        },
+        { 
+          name: "vassal",  
+          desc: "Создать вассальный клан.<br>Максимум: вассальных кланов 3.<br> Процент от дохода вассала от наемничества, передаваемого вашему клану: 25%<br>Процент от дохода вассала от владения, передаваемого вашему клану: 25%", 
+          example: "!kingdom vassal клан_травоеды Рыжий",
+          cost: "2.000.000⦷"
+        },
+        {
+          name: "expel",  
+          desc: "Принудительное изгнание вассала/клана из королевства", 
+          example: "!kingdom expel клан_травоеды",
+          cost: "100.000⦷"
+        },
+        {
+          name: "armies",  
+          desc: "В дальнейшем будут подробности.", 
+          example: "!kingdom armies"
+        },
+        {
+          name: "tax",  
+          desc: "Установить процент доходов вассала/ов, который забирает сюзерен. Минимальное значение: 0%, а максимальное 50%", 
+          example: "!kingdom tax 33"
+        },
+        {
+          name: "release",  
+          desc: "Освободить плененного лорда или игрока BLT (возможно)", 
+          example: "!kingdom release Юрий",
+          cost: "50.000⦷"
+        }
+      ]
     },
     {
       name: "!diplomacy",
       category: "clan",
-      description: "Команды дипломатии (перемирия, войны, отношения — если функционал включён).",
-      usage: "!diplomacy",
-      example: "!diplomacy",
-      details: ""
+      description: "Команды дипломатии (перемирия, войны, отношения и т.д.).",
+      subcommands: [
+        { 
+          name: "war",  
+          desc: "Объявить войну королевству.<br>Повторный повод к войне можно инициировать не раньше чем через 20 игровых дней.<br>Война длиться минимум 30 дней", 
+          example: "!diplomacy war Вландия",
+          cost: "250.000⦷"
+        },
+        { 
+          name: "peace",  
+          desc: "Заключить мир с королевством.", 
+          example: "!diplomacy peace Вландия",
+          cost: "100.000⦷"
+        },
+        { 
+          name: "nap",  
+          desc: "Заключить договор о ненападении с королевством.<br>Необходимо: 50 влияния<br>Макисмальное кол-во активных договоров: 5", 
+          example: "!diplomacy nap Вландия",
+          cost: "100.000⦷"
+        },
+        { 
+          name: "alliance",  
+          desc: "Заключить альянс с королевством.<br>Необходимо: 100 влияния<br>Макисмальное кол-во активных договоров: 3", 
+          example: "!diplomacy alliance Вландия",
+          cost: "150.000⦷"
+        },
+        { 
+          name: "trade",  
+          desc: "Заключить трговое соглашение с королевством.", 
+          example: "!diplomacy trade Вландия",
+          cost: "50.000⦷"
+        },
+        { 
+          name: "ctw",  
+          desc: "Призыв королевство к войне с другим королевством.<br>Необходимо: 50 влияния<br>Окно в 15 дней на принятие решения.", 
+          example: "!diplomacy ctw Вландия Стургия",
+          cost: "50.000⦷"
+        },
+        { 
+          name: "tribute",  
+          desc: "Настройка дани (100–10000⦷ в день, на 90 дней).<br><i>В дальнейшем информацию дополню.</i>", 
+          example: "!diplomacy tribute"
+        },
+        { 
+          name: "truce",  
+          desc: "Перемирие на 30 дней.<br><i>В дальнейшем информацию дополню.</i>", 
+          example: "!diplomacy truce"
+        }
+      ]
+    },
+    {
+      name: "!upgrade clan",
+      category: "clan",
+      description: "Использовать систему улучшений вашего клана",
+      subcommands: [
+        { 
+          name: "info",  
+          desc: "Список улучшений вашего клана.", 
+          example: "!upgrade info clan"
+        },
+        { 
+          name: "all",  
+          desc: "Купить все улучшения для вашего клана.", 
+          example: "!upgrade clan all",
+          cost: "120.000⦷"
+        },
+        { 
+          name: "renown",  
+          desc: "Купить улучшения, которое дает: +1 к известности в день.", 
+          example: "!upgrade clan clan_renown_1",
+          cost: "30.000⦷"
+        },
+        { 
+          name: "party",  
+          desc: "Купить улучшения, которое дает: +20 к размеру отряда.", 
+          example: "!upgrade clan clan_party_1",
+          cost: "40.000⦷"
+        },
+        { 
+          name: "settlements",  
+          desc: "Купить улучшения, которое дает: +0.3 к верности и +0.5 к процветанию для всех ваших феодах.", 
+          example: "!upgrade clan clan_settlements_1",
+          cost: "50.000⦷"
+        }
+      ]
+    },
+    {
+      name: "!upgrade fief",
+      category: "clan",
+      description: "Использовать систему улучшений вашего феода",
+      subcommands: [
+        { 
+          name: "info",  
+          desc: "Список улучшений вашего феода.", 
+          example: "!upgrade info fief Роти"
+        },
+        { 
+          name: "all",  
+          desc: "Купить все улучшения для феода.", 
+          example: "!upgrade fief Роти all",
+          cost: "65.000⦷"
+        },
+        { 
+          name: "loyalty",  
+          desc: "Купить улучшения, которое дает: +0.5 к верности в день феоду.", 
+          example: "!upgrade fief Роти fief_loyalty_1",
+          cost: "15.000⦷"
+        },
+        { 
+          name: "prosperity",  
+          desc: "Купить улучшения, которое дает: +1 к процветанию в день феоду.", 
+          example: "!upgrade fief Роти fief_prosperity_1",
+          cost: "20.000⦷"
+        },
+        { 
+          name: "security",  
+          desc: "Купить улучшения, которое дает: +0.5 к безопасности в день феоду.", 
+          example: "!upgrade fief Роти fief_security_1",
+          cost: "12.000⦷"
+        },
+        { 
+          name: "militia",  
+          desc: "Купить улучшения, которое дает: +2 к ополчению в день феоду.", 
+          example: "!upgrade fief Роти fief_militia_1",
+          cost: "10.000⦷"
+        },
+        { 
+          name: "food",  
+          desc: "Купить улучшения, которое дает: +5 к еде в день феоду.", 
+          example: "!upgrade fief Роти fief_food_1",
+          cost: "8.000⦷"
+        }
+      ]
+    },
+    {
+      name: "!upgrade kingdom",
+      category: "clan",
+      description: "Использовать систему улучшений вашего королевства",
+      subcommands: [
+        { 
+          name: "info",  
+          desc: "Список улучшений вашего государства.", 
+          example: "!upgrade info kingdom"
+        },
+        { 
+          name: "all",  
+          desc: "Купить все улучшения для вашего государства.", 
+          example: "!upgrade kingdom all",
+          cost: "450.000⦷ + 2.000 влияния"
+        },
+        { 
+          name: "influence",  
+          desc: "Купить улучшения, которое дает: +2 к влиянию в день (только для правителя).", 
+          example: "!upgrade kingdom kingdom_influence_1",
+          cost: "100.000⦷ + 500 влияния"
+        },
+        { 
+          name: "military",  
+          desc: "Купить улучшения, которое дает: +15 к размеру отряда для всех кланов королевства и +1 к ополчению в день для всех феодов королевства.", 
+          example: "!upgrade kingdom kingdom_military_1",
+          cost: "150.000⦷ + 1.000 влияния"
+        },
+        { 
+          name: "prosperity",  
+          desc: "Купить улучшения, которое дает: +0.2 к верности и +0.5 к процветанию в день для всех ваших кланов в королевстве.", 
+          example: "!upgrade kingdom kingdom_prosperity_1",
+          cost: "200.000⦷ + 1.500 влияния"
+        }
+      ]
     },
 
     // === БОЙ / ПРИЗЫВ ===
@@ -406,48 +663,118 @@
       example: "!битваинфо"
     },
 
-    // === ТУРНИРЫ / СТАВКИ / АУКЦИОНЫ ===
+    // === ПРОЧЕЕ ===
     {
       name: "!турик",
-      category: "tournament",
+      category: "other",
       description: "Поставить героя в очередь на турнир. В каждом турнире до 16 героев; остальные ждут следующего.",
       usage: "!турик",
-      example: "!турик",
-      details: ""
     },
     {
       name: "!ставка",
-      category: "tournament",
-      description: "Сделать ставку на турнирный матч. Если ставка только на одну команду — она возвращается.",
-      usage: "!ставка <team> <gold>",
-      example: "!ставка red 10000",
-      details: ""
-    },
-    {
-      name: "!аукцион",
-      category: "tournament",
-      description: "Запустить аукцион на свой кастомный предмет с минимальной ценой. Другие зрители делают ставки, побеждает наибольшая.",
-      usage: "!аукцион <index> <reserve>",
-      example: "!аукцион 3 50000",
-      details: ""
-    },
-    {
-      name: "!предложить",
-      category: "tournament",
-      description: "Сделать ставку в текущем активном аукционе. Если аукциона нет или ставка ниже резерва, её отклонят.",
-      usage: "!предложить <gold>",
-      example: "!предложить 100000",
-      details: ""
-    },
-
-    // === ПРОЧЕЕ ===
-    {
-      name: "!молодость",
       category: "other",
-      description: "Особая команда, влияющая на возраст героя (точный эффект зависит от конфигурации BLT).",
-      usage: "!молодость",
-      example: "!молодость",
-      details: ""
+      description: "Поставить на финальный турнирный матч.",
+      subcommands: [
+        { 
+          name: "синий",   
+          desc: "Поставить на синего игрока", 
+          example: "!ставка синий 10000"
+        },
+        { 
+          name: "красный",   
+          desc: "Поставить на красного игрока", 
+          example: "!ставка красный 10000"
+        },
+      ]
+    },
+    {
+      name: "!leaderboard hero",
+      category: "other",
+      description: "Лидерборд по героям BLT",
+      subcommands: [
+        { 
+          name: "kills",   
+          desc: "Выводит лидерборд по числу убийств", 
+          example: "!leaderboard hero kills"
+        },
+        { 
+          name: "deaths",   
+          desc: "Выводит лидерборд по числу смертей", 
+          example: "!leaderboard hero deaths"
+        },
+        { 
+          name: "battles",   
+          desc: "Выводит лидерборд по числу битв", 
+          example: "!leaderboard hero battles"
+        },
+        { 
+          name: "summons",   
+          desc: "Выводит лидерборд по числу боев за стримера", 
+          example: "!leaderboard hero summon"
+        },
+        { 
+          name: "attacks",   
+          desc: "Выводит лидерборд по числу боев против стримера", 
+          example: "!leaderboard hero attacks"
+        },
+        { 
+          name: "family",   
+          desc: "Выводит лидерборд по числу людей в семье", 
+          example: "!leaderboard hero family"
+        },
+      ]
+    },
+    {
+      name: "!leaderboard clan",
+      category: "other",
+      description: "Лидерборд по кланам BLT",
+      subcommands: [
+        { 
+          name: "power",   
+          desc: "Выводит лидерборд по числу силы", 
+          example: "!leaderboard clan power"
+        },
+        { 
+          name: "renown",   
+          desc: "Выводит лидерборд по числу известности", 
+          example: "!leaderboard clan renown"
+        },
+        { 
+          name: "members",   
+          desc: "Выводит лидерборд по числу участников", 
+          example: "!leaderboard clan members"
+        },
+        { 
+          name: "dead",   
+          desc: "Выводит лидерборд по числу мертвых", 
+          example: "!leaderboard clan dead"
+        },
+        { 
+          name: "fiefs",   
+          desc: "Выводит лидерборд по числу феодов", 
+          example: "!leaderboard clan fiefs"
+        },
+        { 
+          name: "gold",   
+          desc: "Выводит лидерборд по числу золота", 
+          example: "!leaderboard clan gold"
+        },
+        { 
+          name: "party",   
+          desc: "Выводит лидерборд по числу отрядов", 
+          example: "!leaderboard clan party"
+        },
+        { 
+          name: "merc",   
+          desc: "Выводит лидерборд по числу наёмных кланов", 
+          example: "!leaderboard clan merc"
+        },
+        { 
+          name: "prosperity",   
+          desc: "Выводит лидерборд по процветанию", 
+          example: "!leaderboard clan prosperity"
+        },
+      ]
     }
   ];
 
@@ -467,12 +794,12 @@
 
   function categoryLabel(cat) {
     switch (cat) {
+      case "battle": return "Бой";
       case "hero": return "Герой";
       case "gear": return "Снаряжение";
-      case "battle": return "Бой";
+      case "economy": return "Экономика / аукционы";
+      case "party": return "Свита / отряды / армии";
       case "clan": return "Клан / королевство";
-      case "economy": return "Экономика";
-      case "tournament": return "Турниры / аукционы";
       case "other": return "Прочее";
       default: return "Все";
     }
