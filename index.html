@@ -1,3 +1,4 @@
+ <!--index.html-->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -11,7 +12,6 @@
 </head>
 <body>
 <div class="page">
-  <!-- HEADER (на всю ширину) -->
   <header class="header-main">
     <div class="header-main-inner">
       <div class="header-meta">
@@ -33,168 +33,64 @@
         Справочник по командам чата, классам и наградам за баллы канала для модификации Bannerlord Twitch (BLT).
       </p>
 
-      <!-- ДЛЯ НОВИЧКОВ -->
-      <section class="newbie-card" id="newbie">
-        <div class="newbie-header">
-          <h2 class="newbie-title">
-            <span>🏹</span> Для новичков — как начать и что делать
-          </h2>
-        </div>
-        <div class="newbie-steps">
-          <div class="newbie-step">
-            <h4><span>👤</span> Шаг 1. Усынови героя</h4>
-            <p>
-              BLT даёт тебе своего героя в сохранении стримера.<br>
-              Начни с команды <code>!усыновить</code>, чтобы создать героя.<br>
-              Если хочешь героя определённой культуры — используй <br> <code>!adoptByCulture название_культуры</code>.
-              <br><br><i>Это база! Без этого ты не сможешь играть со стримером</i>
-            </p>
-          </div>
-          <div class="newbie-step">
-            <h4><span>🎁</span> Шаг 2. Собери ежедневные награды</h4>
-            <p>
-              За баллы канала активируй <code>Daily Gold</code> для получения 100К золота и <code>Daily XP</code> для получения опыта в случайный навык.
-              <br><br><i>Награды обновляются каждый стрим и в очень редких случая: когда стример перезаходит в игру xD</i>
-            </p>
-          </div>
-          <div class="newbie-step">
-            <h4><span>🦸</span> Шаг 3. Выбери класс</h4>
-            <p>
-              Выбери класс: например <code>!класс лучник</code> (команду можно использовать только вне боя).
-              <br><code>!класс</code> - выводит список всех классов.
-              Класс определяет стиль боя и способности.
-              <br><br><i>Если хочешь играть эффективно: пред выбором класса, спроси у чата кого лучше взять</i>
-            </p>
-          </div>
-          <div class="newbie-step">
-            <h4><span>⚔️</span> Шаг 4. Призывай героя в сражения</h4>
-            <p>
-              Когда стример входит в битву, ты можешь вызвать героя:
-              <br><code>!бой</code> — на стороне стримера (команда синих),
-              <br><code>!атака</code> — за врага (команда красных).
-              Герой и его свита (о ней позже) приносят золото и опыт за убийства.
-              <br><br>Команда для хила - <code>!хил</code>, действует 120 сек как и ульта.
-              <br>Также можешь использовать <code>!ульта</code> для активации ульты класса (доступна после 4-ех проведенных боев)
-              <br><br><i>В начале твоей карьеры, лучше играть за стримера</i>
-            </p>
-          </div>
-          <div class="newbie-step">
-            <h4><span>🧍‍♂️</span> Шаг 5. Улучшай своего героя</h4>
-            <p>
-              Улучшай снраягу - <code>!снаряга</code>
-              Вкладывай фокусы в навыки - <code>!фокус</code>
-              <br><i>Например: <code>!фокус атлетичность</code></i>
-              <br>Поднимай атрибуты - <code>!атрибут</code>
-              <br><i>Например: <code>!атрибут выносливость</code></i>
-              <br>Благодаря чему ты становишься всё сильнее и сильнее
-              <br><br><i>Перед тем как вкладываться в фокус и атрибут: прокачай снарягу минимум до 3-го уровня (всего 6)</i>
-            </p>
-          </div>
-          <div class="newbie-step">
-            <h4><span>🧑‍🤝‍🧑</span> Шаг 6. Покупай и улучшай свиту</h4>
-            <p>
-              Устал в бою рубить капусту в одиночку? Не беда! На помощь придет твоя личная свита,
-              которая будет сражаться за тебя до последнего вздоха.
-              <br><code>!свита</code> - покупка/улучшение свиты,
-              а за баллы канал можешь купить/улучшить ЭЛИТНУЮ свиту
-              <br><br><i>Покупать свиту рекомендую, когда ты сам довольно хорошо прокачался</i>
-            </p>
-          </div>
-          <div class="newbie-step">
-            <h4><span>🛒</span> Шаг 7. Покупай оружие, броню, ездовое животное</h4>
-            <p>
-              Нужен хороший меч, топр, лук, стрелы и т.д.?
-              <br>Используй команду - <code>!купитьоружие</code>
-              Нужен латный доспех или чугунный шлем?
-              <br>Используй команду - <code>!купитьброню</code>
-              Нужен осёл?
-              <br>Используй команду - <code>!купитьконя</code>
-              <br><br><i>Покупаешь кота в мешке, повезет: купишь что-то нормальное, нет: значит в следующий раз</i>
-            </p>
-          </div>
-          <div class="newbie-step">
-            <h4><span>🏰</span> Шаг 8. Кланы, королевства</h4>
-            <p>
-              Когда ты познал основы, можно переходить к более интеерсным механикам:
-              Через <code>!clan</code> можно вступать или создавать кланы.
-              Взаимодействие с королевствами через <code>!kingdom</code>.
-              <br><br><i>Удачи в новых свершениях!</i>
-            </p>
-          </div>
-        </div>
-        <p class="newbie-note">
-          Если возникли вопросы или какие-то трудности: пиши в чат, тебе обязательно помогут.
-        </p>
-      </section>
+      <section class="newbie-card" id="newbie"></section>
     </div>
   </header>
 
-  <!-- CONTROLS -->
   <section class="controls">
     <div class="search-wrapper">
       <span class="search-icon">🔎</span>
       <input id="searchInput" class="search-input" type="text"
              placeholder="Поиск по командам: &quot;усыновить&quot;, &quot;турнир&quot;, &quot;свита&quot;, &quot;gold&quot;..." />
-      <button id="searchClear" class="search-clear" type="button">
+      <button id="searchClear" class="search-clear" type="button" aria-label="Очистить поиск">
         ✕ <span>Очистить</span>
       </button>
     </div>
-    <div class="badges" id="categoryFilters">
-
-      <button class="badge-filter active" data-category="all">
+    <div class="badges" id="categoryFilters" role="tablist" aria-label="Фильтр категорий">
+      <button class="badge-filter active" data-category="all" role="tab" aria-selected="true">
         <span></span> Все
       </button>
-
-      <button class="badge-filter" data-category="battle">
+      <button class="badge-filter" data-category="battle" role="tab" aria-selected="false">
         <span></span> Бой
       </button>
-
-      <button class="badge-filter" data-category="hero">
+      <button class="badge-filter" data-category="hero" role="tab" aria-selected="false">
         <span></span> Герой
       </button>
-
-      <button class="badge-filter" data-category="gear">
+      <button class="badge-filter" data-category="gear" role="tab" aria-selected="false">
         <span></span> Снаряжение
       </button>
-
-      <button class="badge-filter" data-category="economy">
+      <button class="badge-filter" data-category="economy" role="tab" aria-selected="false">
         <span></span> Экономика / аукционы
       </button>
-
-      <button class="badge-filter" data-category="party">
+      <button class="badge-filter" data-category="party" role="tab" aria-selected="false">
         <span></span> Свита / отряды / армии
       </button>
-      
-      <button class="badge-filter" data-category="clan">
+      <button class="badge-filter" data-category="clan" role="tab" aria-selected="false">
         <span></span> Клан / королевство
       </button>
-
-      <button class="badge-filter" data-category="other">
+      <button class="badge-filter" data-category="other" role="tab" aria-selected="false">
         <span></span> Прочее
       </button>
-
     </div>
   </section>
 
-  <!-- COMMANDS -->
   <section class="card">
     <div class="card-header">
       <div>
-        <h2 class="card-title">Команды чата</h2>
+        <h2 class="card-title">Команды чата (можно нажать на команду чтоб скопировать)</h2>
         <div class="card-subtitle" id="resultsMeta">
           Показаны все команды
         </div>
       </div>
     </div>
 
-    <div class="scroll">
+    <div class="scroll commands-compact">
       <table>
         <thead>
         <tr>
           <th>Команда</th>
           <th>Описание</th>
-          <th style="width: 220px;">Пример</th>
-          <th style="width: 120px;">Стоимость</th>
+          <th style="width: 260px;">Синтаксис / Пример</th>
         </tr>
         </thead>
         <tbody id="commandsBody"></tbody>
@@ -205,7 +101,6 @@
     </div>
   </section>
 
-  <!-- CLASSES -->
   <section class="card">
     <div class="card-header">
       <div>
@@ -216,7 +111,7 @@
       </div>
     </div>
     <div class="classes-wrapper">
-      <div class="class-grid" id="classGrid"></div>
+      <div class="class-grid" id="classGrid" role="tablist" aria-label="Классы BLT"></div>
       <div id="classDetails" class="class-details">
         <h4>Выбери класс сверху</h4>
         <p>
@@ -226,7 +121,6 @@
     </div>
   </section>
 
-  <!-- REWARDS -->
   <section class="card">
     <div class="card-header">
       <div>
@@ -241,7 +135,7 @@
         <span class="search-icon">🎖️</span>
         <input id="rewardsSearch" class="search-input" type="text"
                placeholder="Поиск: &quot;золото&quot;, &quot;турнир&quot;, &quot;усыновить&quot;..." />
-        <button id="rewardsClear" class="search-clear" type="button">
+        <button id="rewardsClear" class="search-clear" type="button" aria-label="Очистить поиск наград">
           ✕ <span>Очистить</span>
         </button>
       </div>
@@ -252,7 +146,6 @@
         <tr>
           <th>Награда</th>
           <th>Описание / Команда</th>
-          <th style="width:140px;">Эффект</th>
         </tr>
         </thead>
         <tbody id="rewardsBody"></tbody>
@@ -263,12 +156,43 @@
     </div>
   </section>
 
+  <section class="card">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Достижения</h2>
+        <div class="card-subtitle">
+          Название, требования и приз
+        </div>
+      </div>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead>
+        <tr>
+          <th>Достижение</th>
+          <th>Требования</th>
+          <th style="width: 180px;">Приз</th>
+        </tr>
+        </thead>
+        <tbody id="achievementsBody"></tbody>
+      </table>
+    </div>
+  </section>
+
   <footer class="footer">
-    Страницу можно выложить как статический сайт и использовать на стриме через ссылку или встроенный
-    <code>Browser Source</code> в OBS.
+    BLT TWITCH HELPER
   </footer>
 </div>
 
+<!-- Подключение данных -->
+<script src="data/intro.js"></script>
+<script src="data/categories.js"></script>
+<script src="data/commands.js"></script>
+<script src="data/rewards.js"></script>
+<script src="data/classes.js"></script>
+<script src="data/achievements.js"></script>
+
+<!-- Логика -->
 <script src="scripts.js"></script>
 </body>
 </html>

@@ -1,18 +1,28 @@
+/* styles.css */
 :root {
+    /* База: тёмно-серый, без сильной коричневой грязи */
     --bg: #050608;
-    --bg-elevated: rgba(8, 9, 15, 0.97);
-    --bg-elevated-soft: rgba(15, 17, 26, 0.97);
-    --accent: #e0b15a;
-    --accent-soft: rgba(224, 177, 90, 0.2);
-    --accent-strong: #f4d184;
-    --text: #f5f5f5;
-    --text-muted: #c5c8da;
-    --border: #2f3448;
-    --radius-lg: 16px;
-    --radius-md: 12px;
-    --radius-sm: 8px;
-    --shadow-soft: 0 24px 50px rgba(0, 0, 0, 0.8);
-    --shadow-subtle: 0 12px 30px rgba(0, 0, 0, 0.7);
+    --bg-elevated: #101118;
+    --bg-elevated-soft: #171821;
+
+    /* Акцент: тёплое золото, но дозированно */
+    --accent: #cfa763;
+    --accent-soft: rgba(207, 167, 99, 0.18);
+    --accent-strong: #f3d99a;
+
+    /* Текст: нейтральный, слегка тёплый серый */
+    --text: #f3f4f6;
+    --text-muted: #aeb3c2;
+
+    /* Границы: холодный тёмно-серый, без красноты */
+    --border: #2c3040;
+
+    --radius-lg: 14px;
+    --radius-md: 10px;
+    --radius-sm: 6px;
+
+    --shadow-soft: 0 16px 36px rgba(0, 0, 0, 0.85);
+    --shadow-subtle: 0 10px 24px rgba(0, 0, 0, 0.75);
 }
 
 * { box-sizing: border-box; }
@@ -21,8 +31,8 @@ body {
     margin: 0;
     font-family: "Play", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background:
-    url("mb2-bg.jpg") center/cover fixed no-repeat,
-    radial-gradient(circle at top, rgba(36, 30, 20, 0.6), transparent 55%);
+      url("mb2-bg.jpg") center/cover fixed no-repeat,
+      radial-gradient(circle at top, #080910, #050608);
     color: var(--text);
     min-height: 100vh;
 }
@@ -31,7 +41,7 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.88));
+    background: radial-gradient(circle at top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95));
     z-index: -1;
 }
 
@@ -41,33 +51,35 @@ body::before {
     padding: 20px 12px 32px;
 }
 
-a { color: var(--accent-strong); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+    color: var(--accent-strong);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
 
-/* HEADER — одна широкая карточка */
+/* HEADER */
 
 .header-main {
-    background: linear-gradient(135deg, rgba(17, 18, 27, 0.97), rgba(42, 35, 24, 0.97));
+    background: linear-gradient(135deg, #141722, #191514);
     border-radius: var(--radius-lg);
     padding: 18px 18px 14px;
-    border: 1px solid rgba(224, 177, 90, 0.55);
+    border: 1px solid rgba(207, 167, 99, 0.7);
     box-shadow: var(--shadow-soft);
     position: relative;
     overflow: hidden;
     margin-bottom: 18px;
 }
 
-.header-main-inner {
-    position: relative;
-    z-index: 1;
-}
+.header-main-inner { position: relative; z-index: 1; }
 
 .header-main::before {
     content: "";
     position: absolute;
-    inset: -130px 40% auto -130px;
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 65%);
-    opacity: 0.9;
+    inset: -140px 45% auto -140px;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 65%);
+    opacity: 0.6;
     pointer-events: none;
 }
 
@@ -76,16 +88,16 @@ a:hover { text-decoration: underline; }
     gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 8px;
-    font-size: 13px;
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.08em;
 }
 
 .meta-pill {
-    padding: 4px 9px;
-    background: rgba(6, 7, 12, 0.95);
+    padding: 3px 9px;
+    background: rgba(8, 9, 14, 0.96);
     border-radius: 999px;
-    border: 1px solid rgba(172, 145, 84, 0.7);
+    border: 1px solid rgba(139, 118, 78, 0.8);
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -98,9 +110,9 @@ a:hover { text-decoration: underline; }
 }
 
 .title {
-    font-size: clamp(28px, 4vw, 34px);
+    font-size: clamp(26px, 4vw, 32px);
     margin: 0 0 6px;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     display: flex;
     flex-wrap: wrap;
@@ -109,22 +121,20 @@ a:hover { text-decoration: underline; }
 }
 
 .title-badge {
-    font-size: 13px;
+    font-size: 12px;
     text-transform: uppercase;
-    padding: 4px 10px;
+    padding: 3px 9px;
     border-radius: 999px;
-    border: 1px solid rgba(250, 250, 250, 0.28);
-    background: rgba(3, 3, 4, 0.9);
+    border: 1px solid rgba(230, 230, 240, 0.18);
+    background: rgba(8, 8, 12, 0.96);
     color: var(--accent-strong);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     display: inline-flex;
     align-items: center;
     gap: 6px;
 }
 
-.title-badge span {
-    font-size: 18px;
-}
+.title-badge span { font-size: 17px; }
 
 .subtitle {
     margin: 4px 0 8px;
@@ -133,27 +143,13 @@ a:hover { text-decoration: underline; }
     max-width: 800px;
 }
 
-.twitch-hint {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 4px;
-}
-
-.twitch-hint code {
-    background: rgba(5, 6, 10, 0.95);
-    padding: 1px 5px;
-    border-radius: 4px;
-    border: 1px solid rgba(86, 90, 124, 0.75);
-    font-size: 12px;
-}
-
 /* NEWBIE SECTION */
 
 .newbie-card {
     margin-top: 10px;
-    background: rgba(9, 10, 16, 0.97);
+    background: #101119;
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(120, 95, 50, 0.85);
+    border: 1px solid #343747;
     padding: 10px 11px 8px;
     box-shadow: var(--shadow-subtle);
 }
@@ -168,17 +164,15 @@ a:hover { text-decoration: underline; }
 }
 
 .newbie-title {
-    font-size: 16px;
+    font-size: 15px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.09em;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.newbie-title span {
-    font-size: 18px;
-}
+.newbie-title span { font-size: 18px; }
 
 .newbie-subtitle {
     font-size: 12px;
@@ -187,7 +181,7 @@ a:hover { text-decoration: underline; }
 
 .newbie-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 10px;
     font-size: 13px;
     color: var(--text-muted);
@@ -195,9 +189,9 @@ a:hover { text-decoration: underline; }
 
 .newbie-step {
     border-radius: var(--radius-md);
-    border: 1px solid rgba(67, 72, 112, 0.9);
+    border: 1px solid #3c4156;
     padding: 8px 9px 6px;
-    background: radial-gradient(circle at top, rgba(40, 43, 70, 0.9), rgba(8, 9, 15, 0.97));
+    background: #171927;
 }
 
 .newbie-step h4 {
@@ -211,9 +205,7 @@ a:hover { text-decoration: underline; }
     gap: 6px;
 }
 
-.newbie-step h4 span {
-    font-size: 17px;
-}
+.newbie-step h4 span { font-size: 17px; }
 
 .newbie-step p {
     margin: 0;
@@ -222,10 +214,10 @@ a:hover { text-decoration: underline; }
 
 .newbie-step code,
 .newbie-note code {
-    background: rgba(5, 6, 10, 0.95);
+    background: #060812;
     padding: 1px 4px;
     border-radius: 4px;
-    border: 1px solid rgba(86, 90, 124, 0.8);
+    border: 1px solid #515770;
     font-size: 12px;
 }
 
@@ -255,9 +247,9 @@ a:hover { text-decoration: underline; }
     width: 100%;
     border-radius: 999px;
     border: 1px solid var(--border);
-    padding: 9px 90px 9px 34px;
-    font-size: 15px;
-    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03), rgba(7, 7, 11, 0.96));
+    padding: 8px 90px 8px 34px;
+    font-size: 14px;
+    background: #0b0d14;
     color: var(--text);
     outline: none;
     box-shadow: var(--shadow-subtle);
@@ -284,8 +276,8 @@ a:hover { text-decoration: underline; }
     transform: translateY(-50%);
     font-size: 12px;
     border-radius: 999px;
-    border: 1px solid rgba(143, 147, 180, 0.9);
-    background: rgba(5, 6, 10, 0.95);
+    border: 1px solid #414660;
+    background: #060711;
     color: var(--text-muted);
     padding: 3px 8px;
     cursor: pointer;
@@ -305,11 +297,11 @@ a:hover { text-decoration: underline; }
 }
 
 .badge-filter {
-    font-size: 12px;
-    padding: 6px 10px;
+    font-size: 11px;
+    padding: 5px 9px;
     border-radius: 999px;
     border: 1px solid var(--border);
-    background: rgba(11, 12, 20, 0.96);
+    background: #101219;
     color: var(--text-muted);
     cursor: pointer;
     display: inline-flex;
@@ -317,19 +309,25 @@ a:hover { text-decoration: underline; }
     gap: 6px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    transition: all 0.15s ease;
 }
 
 .badge-filter span {
     width: 7px;
     height: 7px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(243, 217, 154, 0.35);
 }
 
 .badge-filter.active {
     border-color: var(--accent);
     background: var(--accent-soft);
     color: var(--accent-strong);
+}
+
+.badge-filter:hover:not(.active) {
+    border-color: rgba(207, 167, 99, 0.7);
+    background: rgba(207, 167, 99, 0.12);
 }
 
 /* MAIN BLOCKS */
@@ -353,9 +351,9 @@ a:hover { text-decoration: underline; }
 }
 
 .card-title {
-    font-size: 17px;
+    font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.09em;
 }
 
 .card-subtitle {
@@ -369,33 +367,35 @@ a:hover { text-decoration: underline; }
     max-height: 70vh;
     overflow: auto;
     border-radius: var(--radius-md);
-    border: 1px solid rgba(52, 55, 85, 0.95);
+    border: 1px solid #2f3446;
     background: var(--bg-elevated-soft);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 13px;
+    min-width: 700px;
 }
 
 thead {
     position: sticky;
     top: 0;
     z-index: 2;
-    background: linear-gradient(to bottom, rgba(15, 17, 28, 0.99), rgba(11, 12, 20, 0.99));
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+    background: #181a25;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.85);
 }
 
-th, td {
-    padding: 9px 10px;
-    border-bottom: 1px solid rgba(45, 48, 75, 0.98);
+th,
+td {
+    padding: 7px 8px;
+    border-bottom: 1px solid #262a3b;
     vertical-align: top;
     text-align: left;
 }
 
 th {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--text-muted);
@@ -403,12 +403,33 @@ th {
 }
 
 tbody tr:nth-child(even) {
-    background: rgba(7, 8, 14, 0.98);
+    background: #10121a;
 }
 
 tbody tr:hover {
-    background: rgba(32, 34, 56, 0.95);
+    background: #202334;
 }
+
+/* компактный режим для таблицы команд */
+
+.commands-compact table { font-size: 13px; }
+
+.commands-compact th,
+.commands-compact td {
+    padding: 5px 6px;
+}
+
+.commands-compact .cmd-usage-block {
+    margin-top: 3px;
+    padding: 3px 6px;
+}
+
+.commands-compact .subcommands-list li {
+    margin-top: 6px;
+    padding: 4px 6px;
+}
+
+/* COMMAND CELLS */
 
 .cmd-name {
     font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -425,14 +446,14 @@ tbody tr:hover {
 }
 
 .cmd-pill {
-    font-size: 11px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     padding: 2px 7px;
     border-radius: 999px;
-    border: 1px solid rgba(87, 92, 130, 0.95);
+    border: 1px solid #3a3e52;
     color: var(--text-muted);
-    background: rgba(3, 4, 9, 0.96);
+    background: #141622;
 }
 
 .cmd-desc {
@@ -442,66 +463,221 @@ tbody tr:hover {
     white-space: pre-line;
 }
 
-.cmd-usage-block {
-    margin-top: 5px;
+/* подкоманды */
+
+.subcommands-title {
+    margin-top: 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 700;
+    border-top: 1px solid #2b3043;
+    padding-top: 6px;
+}
+
+.subcommands-list {
+    margin: 4px 0 0;
+    padding-left: 0;
+    list-style: none;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.subcommands-list li {
+    margin-top: 8px;
+    padding: 6px 8px;
+    background: #141725;
     border-radius: var(--radius-sm);
-    border: 1px solid rgba(67, 72, 112, 0.98);
-    background: rgba(3, 4, 9, 0.98);
-    padding: 5px 7px 4px;
+    border: 1px solid #2b3043;
+}
+
+.subcommand-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.subcommand-name {
+    color: var(--accent-strong);
+    font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 12px;
+}
+
+.subcommand-cost {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(255, 252, 240, 0.03);
+    border: 1px solid rgba(255, 252, 240, 0.06);
+    color: var(--accent);
+    line-height: 1.4;
+}
+
+.subcommand-desc { line-height: 1.45; }
+
+/* пример команды и копирование */
+
+.cmd-usage-block {
+    position: relative;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #353a4e;
+    background: #151828;
+    padding: 5px 8px;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease-out;
+}
+
+.cmd-usage-block:hover {
+    border-color: var(--accent);
+    background: rgba(207, 167, 99, 0.16);
+    transform: translateY(-1px);
+}
+
+.cmd-usage-block.copied::after {
+    content: "Скопировано!";
+    position: absolute;
+    right: 6px;
+    top: 4px;
+    font-size: 10px;
+    color: var(--accent-strong);
+    opacity: 0.9;
+}
+
+.cmd-usage-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 2px;
 }
 
 .cmd-usage {
     font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 12px;
-    color: #e2e4ff;
+    color: #f4f5ff;
     white-space: pre-line;
-}
-
-.cmd-example {
-    margin-top: 3px;
-    font-size: 12px;
-    color: var(--text-muted);
-}
-
-.cmd-example code {
-    background: rgba(5, 6, 10, 0.95);
-    padding: 1px 4px;
-    border-radius: 4px;
-    border: 1px solid rgba(86, 90, 124, 0.8);
-    font-size: 12px;
-}
-
-.copy-btn {
-    margin-top: 4px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 3px 8px;
-    border-radius: 999px;
-    border: 1px solid rgba(120, 124, 165, 0.98);
-    background: rgba(7, 8, 14, 0.98);
-    color: var(--text-muted);
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.copy-btn span {
-    font-size: 13px;
+    word-break: break-all;
 }
 
 .cmd-cost {
     font-size: 12px;
     color: var(--accent-strong);
+    line-height: 1.5;
 }
 
 .cmd-cost span { opacity: 0.85; }
+
+/* inline-стоимость под описанием */
+
+.cmd-cost-inline {
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px dashed #2b3043;
+    font-size: 11px;
+    color: var(--accent);
+}
+
+/* reward effect */
+
+.reward-effect {
+    margin-top: 3px;
+    font-size: 11px;
+    color: var(--text-muted);
+    opacity: 0.85;
+}
 
 .no-results {
     padding: 9px 10px;
     font-size: 13px;
     color: var(--text-muted);
+}
+
+/* Тиры стоимости */
+
+.tier-row {
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 5px;
+    border-top: 1px dashed #2b3043; /* под весь блок описания */
+}
+
+.tier-pill {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    padding: 4px 7px;
+    border-radius: 999px;
+    border: 1px solid #3a3e52;
+    background: #181a29;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.tier-label {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 10px;
+    opacity: 0.9;
+}
+
+.tier-value {
+    font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 11px;
+    color: var(--accent-strong);
+}
+
+/* Если хочешь разные оттенки для групп тиров */
+.tier-pill-basic {
+    border-color: rgba(118, 189, 110, 0.8);
+    background: rgba(118, 189, 110, 0.08);
+}
+
+.tier-pill-mid {
+    border-color: rgba(228, 182, 96, 0.9);
+    background: rgba(228, 182, 96, 0.08);
+}
+
+.tier-pill-high {
+    border-color: rgba(224, 111, 92, 0.9);
+    background: rgba(224, 111, 92, 0.08);
+}
+
+/* теги форматирования внутри текста */
+
+.tag-cmd {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #3a3e52;
+    background: #181a29;
+    font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 12px;
+    color: #f4f5ff;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.tag-cmd:hover {
+    border-color: var(--accent);
+    background: rgba(207, 167, 99, 0.18);
+}
+
+.tag-cost {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.tag-kw {
+    color: var(--text-muted);
+    font-style: italic;
 }
 
 /* CLASSES */
@@ -518,44 +694,49 @@ tbody tr:hover {
     gap: 8px;
 }
 
+/* карточки классов */
+
 .class-card {
     border-radius: var(--radius-md);
     padding: 8px 9px 7px;
-    background: radial-gradient(circle at top, rgba(61, 64, 98, 0.9), rgba(8, 9, 15, 0.98));
-    border: 1px solid rgba(95, 99, 138, 0.98);
+    background: #171824;
+    border: 1px solid #353a4e;
     font-size: 13px;
     cursor: pointer;
     transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, border-color 0.08s;
+    color: var(--text);
 }
 
 .class-card:hover {
     transform: translateY(-1px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
-    border-color: rgba(224, 177, 90, 0.9);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.85);
+    border-color: var(--accent);
 }
 
 .class-card.selected {
-    border-color: rgba(224, 177, 90, 0.95);
+    border-color: var(--accent);
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.9);
-    background: radial-gradient(circle at top, rgba(104, 89, 145, 0.85), rgba(10, 10, 18, 0.99));
+    background: #1d1f31;
 }
 
-.class-card strong {
-    display: block;
+.class-name {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 12px;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
+    color: var(--accent-strong);
 }
 
-.class-card span {
+.class-short {
     font-size: 12px;
     color: var(--text-muted);
 }
 
+/* блок деталей класса */
+
 .class-details {
     border-radius: var(--radius-md);
-    border: 1px solid rgba(67, 72, 112, 0.98);
+    border: 1px solid #353a4e;
     padding: 8px 9px 7px;
     background: var(--bg-elevated-soft);
     font-size: 13px;
@@ -569,6 +750,14 @@ tbody tr:hover {
     color: var(--accent-strong);
 }
 
+.class-short-main {
+    margin: 0 0 6px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* формация / снаряжение */
+
 .class-details-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -578,9 +767,9 @@ tbody tr:hover {
 
 .class-details-box {
     border-radius: var(--radius-sm);
-    border: 1px solid rgba(67, 72, 112, 0.98);
+    border: 1px solid #353a4e;
     padding: 5px 7px;
-    background: rgba(5, 6, 12, 0.97);
+    background: #141725;
     font-size: 12px;
 }
 
@@ -593,27 +782,58 @@ tbody tr:hover {
     color: var(--text-muted);
 }
 
-.class-details-list {
+/* блоки способностей */
+
+.class-abilities { margin-top: 8px; }
+
+.class-abilities h5 {
     margin: 0 0 4px;
-    padding-left: 18px;
-    color: var(--text-muted);
-    line-height: 1.5;
     font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
 }
 
-.class-details p {
-    margin: 0 0 4px;
-    color: var(--text-muted);
-    line-height: 1.4;
+/* карточка способности с уровнями */
+
+.ability-card {
+    margin-top: 6px;
+    padding: 6px 7px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #353a4e;
+    background: #151827;
 }
 
-.class-details-note code {
-    background: rgba(5, 6, 10, 0.95);
-    padding: 1px 4px;
-    border-radius: 4px;
-    border: 1px solid rgba(86, 90, 124, 0.8);
+.ability-title {
     font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-strong);
+    margin-bottom: 4px;
 }
+
+.ability-levels {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2px 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.ability-level-rank {
+    color: var(--accent-strong);
+    font-weight: 700;
+}
+
+.ability-level-effect { }
+
+.ability-level-req {
+    opacity: 0.78;
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* FOOTER */
 
 .footer {
     margin-top: 18px;
@@ -623,35 +843,92 @@ tbody tr:hover {
 }
 
 .footer code {
-    background: rgba(3, 3, 4, 0.95);
+    background: #090b14;
     padding: 2px 4px;
     border-radius: 4px;
-    border: 1px solid rgba(73, 76, 112, 0.9);
+    border: 1px solid #353a4e;
 }
 
+/* MEDIA */
+
 @media (max-width: 720px) {
-    .page {
-    padding-inline: 10px;
-    }
-    .header-main {
-    padding: 16px 12px 12px;
-    }
-    .title {
-    font-size: 24px;
-    }
-    .scroll {
-    max-height: 60vh;
-    }
+    .page { padding-inline: 10px; }
+    .header-main { padding: 16px 12px 12px; }
+    .title { font-size: 24px; }
+    .scroll { max-height: 60vh; }
+    .newbie-steps { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
-    th, td {
-    padding: 7px 6px;
+    th, td { padding: 7px 6px; }
+    .search-input { padding-right: 82px; }
+    .class-grid { grid-template-columns: minmax(0, 1fr); }
+    .subcommand-header {
+        flex-direction: column;
+        gap: 4px;
     }
-    .search-input {
-    padding-right: 82px;
-    }
-    .class-grid {
-    grid-template-columns: minmax(0, 1fr);
-    }
+}
+
+/* SCROLLBARS */
+
+/* Для всех прокруток в целом */
+* {
+    scrollbar-width: thin; /* Firefox: тонкая полоса */
+    scrollbar-color: rgba(80, 85, 115, 0.9) transparent;
+}
+
+/* Для оболочки таблиц .scroll — немного подсветим фон трека */
+.scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(80, 85, 115, 0.9) #10121a;
+}
+
+/* WebKit-браузеры (Chrome, Edge, Safari, Opera) */
+.scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background: #10121a;           /* фон дорожки */
+    border-radius: 999px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background: rgba(92, 98, 135, 0.95); /* сам ползунок */
+    border-radius: 999px;
+    border: 1px solid rgba(12, 13, 22, 0.9);
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(136, 143, 185, 0.98);
+}
+
+/* Обёртка для длинных списков подкоманд внутри ячейки описания */
+.subcommands-wrap {
+    max-height: 500px; /* подбери по вкусу */
+    overflow-y: auto;
+    margin-top: 6px;
+    padding-top: 4px;
+    border-top: 1px solid #2b3043;
+}
+
+/* Чтобы скролл был аккуратным */
+.subcommands-wrap {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(80, 85, 115, 0.9) transparent;
+}
+
+.subcommands-wrap::-webkit-scrollbar {
+    width: 6px;
+}
+.subcommands-wrap::-webkit-scrollbar-track {
+    background: transparent;
+}
+.subcommands-wrap::-webkit-scrollbar-thumb {
+    background: rgba(92, 98, 135, 0.9);
+    border-radius: 999px;
+}
+.subcommands-wrap::-webkit-scrollbar-thumb:hover {
+    background: rgba(136, 143, 185, 0.98);
 }
