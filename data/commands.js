@@ -354,6 +354,12 @@ const commands = [
     syntax: "!списоксвиты"
   },
   {
+    name: "!списокэлсвиты",
+    category: "party",
+    description: "Показать текущих юнитов элитной свиты героя.",
+    syntax: "!списокэлсвиты"
+  },
+  {
     name: "!party",
     category: "party",
     description: "Управление отрядом и армией.",
