@@ -888,7 +888,7 @@ const commands = [
   {
     name: "!upgrade fief",
     category: "clan",
-    description: "Использовать систему улучшений вашего феода.",
+    description: "Использовать систему улучшений вашего феода/феодов.",
     syntax: "!upgrade fief [феод] [улучшение]",
     subcommands: [
       {
@@ -898,17 +898,16 @@ const commands = [
         example: "!upgrade info fief Роти"
       },
       {
-        name: "all",
-        desc: "Купить все улучшения для феода.",
-        syntax: "!upgrade fief [феод] all",
-        example: "!upgrade fief Роти all",
-        cost: 65000
-      },
-      {
         name: "loyalty",
         desc: "Улучшение: +0.5 к верности в день.",
         syntax: "!upgrade fief [феод] fief_loyalty_1",
         example: "!upgrade fief Роти fief_loyalty_1",
+        cost: 15000
+      },
+      {
+        name: "loyalty all fiefs",
+        desc: "Улучшение: +0.5 к верности в день, для кажого твоего феода.",
+        syntax: "!upgrade auto fief fief_loyalty_1 all",
         cost: 15000
       },
       {
@@ -919,10 +918,22 @@ const commands = [
         cost: 20000
       },
       {
+        name: "prosperity all fiefs",
+        desc: "Улучшение: +1 к процветанию в день, для кажого твоего феода.",
+        syntax: "!upgrade auto fief fief_prosperity_1 all ",
+        cost: 20000
+      },
+      {
         name: "security",
         desc: "Улучшение: +0.5 к безопасности в день.",
         syntax: "!upgrade fief [феод] fief_security_1",
         example: "!upgrade fief Роти fief_security_1",
+        cost: 12000
+      },
+      {
+        name: "security all fiefs",
+        desc: "Улучшение: +0.5 к безопасности в день, для каждого втоего феода.",
+        syntax: "!upgrade auto fief fief_security_1 all",
         cost: 12000
       },
       {
@@ -933,10 +944,22 @@ const commands = [
         cost: 10000
       },
       {
+        name: "militia all fiefs",
+        desc: "Улучшение: +2 к ополчению в день, для каждого твоего феода",
+        syntax: "!upgrade auto fief fief_militia_1 all",
+        cost: 10000
+      },
+      {
         name: "food",
         desc: "Улучшение: +5 к еде в день.",
         syntax: "!upgrade fief [феод] fief_food_1",
         example: "!upgrade fief Роти fief_food_1",
+        cost: 8000
+      },
+      {
+        name: "food all fiefs",
+        desc: "Улучшение: +5 к еде в день, для кажого твоего феода",
+        syntax: "!upgrade auto fief fief_food_1 all",
         cost: 8000
       }
     ]
